@@ -4,13 +4,13 @@ from collections import defaultdict
 
 
 def main():
-     with open('input/input_day_7.txt') as file:
-            file=file.read()
-     lines = [x for x in file.split('\n')]
+    with open('input/input_day_7.txt') as file:
+        file=file.read()
+    lines = [x for x in file.split('\n')]
 
-     path =[]
-     dict_path_size =defaultdict(int)
-     mem = 0
+    path =[]
+    dict_path_size =defaultdict(int)
+    mem = 0
     for line in lines:
         print(path)
     directory=line.strip().split()
@@ -20,7 +20,7 @@ def main():
         else:
             path.append(directory[2])
     elif directory[1] == 'ls':
-        continue
+        pass
     else :
         try: 
             mem=int(directory[0]) 
@@ -32,9 +32,9 @@ def main():
             pass
 
     target_size=100000
-    size_list=[j for i,j in filtered.items() if (j <= target_size) & (j!= None)]
+    size_list=[j for i,j in dict_path_size.items() if (j <= target_size) & (j!= None)]
     print(sum(size_list))
-    
+
     #part 2 
     total_space = 70000000
     update_size = 30000000
@@ -47,3 +47,5 @@ def main():
             options.append(value)
 
     print(min(options))
+    if __name__ == "__main__":
+        main()
